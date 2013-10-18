@@ -12,33 +12,33 @@ class Fraccion
         @d = d
    end
 
-   def mcm(a,b)        
+   def mcm(a,b) #metodo para hallar el minimo comun multiplo  
       (a/gcd(a,b))*b
    end
         
-   def to_s
+   def to_s #metodo para mostrar los resultados en el formato "n/d"
       return "#{@n}/#{@d}"
    end
 
-   def suma(a,b)
+   def suma(a,b) #metodo para la suma
       d = mcm(@d,b)
       n = ((d/@d) * @n) + ((d/b) * a)
       return Fraccion.new(n, d)
    end
 
-   def resta(a,b)
+   def resta(a,b) #metodo para la resta
       d = mcm(@d,b)
       n = ((d/@d) * @n) - ((d/b) * a)
-      return "#{n}/#{d}"        
+      return Fraccion.new(n, d)       
    end
 
-   def producto(a,b)
+   def producto(a,b) #metodo para el producto
       n = @n * a
       d = @d * b
       return Fraccion.new(n, d)
    end
 
-   def division(a,b)        
+   def division(a,b) #metodo para la division
       n = @n*b
       d = @d*a
       return Fraccion.new(n, d)
